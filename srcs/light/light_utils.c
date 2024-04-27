@@ -6,7 +6,7 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:30:46 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/20 12:02:42 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 13:32:37 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_color	phong_lighting(t_render *render)
 	t_node		*node;
 	t_light		*light;
 
-	light_color = color_init(0, 0, 0);
 	light_color_sum = color_init(0, 0, 0);
 	node = render->light.head->next;
 	while (node->next)
@@ -79,14 +78,25 @@ t_bool	hard_shadow(t_light_info *info, t_render *render, t_light *light)
 	double			light_len;
 
 	rec = render->rec;
-	info->light_dir = vec3_sub(&light->origin, &render->rec.p);
-	light_len = vec3_length(&info->light_dir);
 	light_ray_orig = point3_init(rec.p.x + EPSILON * rec.norm.x, \
 								rec.p.y + EPSILON * rec.norm.y, \
 								rec.p.z + EPSILON * rec.norm.z);
-	ray_init(&light_ray, &light_ray_orig, &info->light_dir);
+	info->light_dir = vec3_sub(&light->origin, &light_ray_orig);
+	light_len = vec3_length(&info->light_dir);
 	info->light_dir = vec3_div_scal(&info->light_dir, light_len);
+	ray_init(&light_ray, &light_ray_orig, &info->light_dir);
 	if (in_shadow(&render->world, &light_ray, light_len))
+		return (TRUE);
+	return (FALSE);
+}
+
+t_bool	in_shadow(t_object *objs, t_ray *light_ray, double light_len)
+{
+	t_hit_record	rec;
+
+	rec.tmin = 0;
+	rec.tmax = light_len;
+	if (hit(objs, light_ray, &rec))
 		return (TRUE);
 	return (FALSE);
 }
@@ -126,17 +136,6 @@ void	reflect(t_vec3 *v, const t_vec3 *n)
 	v->x = v->x - n->x * dot_cal;
 	v->y = v->y - n->y * dot_cal;
 	v->z = v->z - n->z * dot_cal;
-}
-
-t_bool	in_shadow(t_object *objs, t_ray *light_ray, double light_len)
-{
-	t_hit_record	rec;
-
-	rec.tmin = 0;
-	rec.tmax = light_len;
-	if (hit(objs, light_ray, &rec))
-		return (TRUE);
-	return (FALSE);
 }
 
 void	color_surround(t_color *light_color)

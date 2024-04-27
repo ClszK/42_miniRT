@@ -6,7 +6,7 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 04:18:28 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/21 09:09:45 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/23 11:40:04 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ typedef struct s_camera
 	t_point3	pixel00;
 	t_vec3		delta_u;
 	t_vec3		delta_v;
+	t_vec3		cam_dir;
 	t_color		ambient;
+	t_vec3		viewport_u;
+	t_vec3		viewport_v;
+	t_vec3		right;
 }	t_camera;
 
 typedef struct s_canvas
@@ -31,19 +35,16 @@ typedef struct s_canvas
 	double		aspect_ratio;
 	int			image_width;
 	int			image_height;
+	int			fov;
 	double		focal_length;
 	double		viewport_width;
 	double		viewport_height;
-	t_vec3		viewport_u;
-	t_vec3		viewport_v;
+	t_vec3		world_up;
 }	t_canvas;
 
 typedef struct s_render
 {
-	int				i;
-	int				j;
 	t_vec3			pixel_center;
-	t_vec3			ray_dir;
 	t_color			color;
 	t_object		world;
 	t_object		light;
@@ -52,7 +53,7 @@ typedef struct s_render
 	t_ray			ray;
 }	t_render;
 
-t_canvas	canvas_init(int width, int height, double focal_length);
+t_canvas	canvas_init(int width, int height, int fov); 
 t_camera	camera_init(t_canvas cvs, t_point3 center, t_vec3 cam_dir);
 void		render(t_canvas cvs, t_camera cm, t_data *img);
 t_render	render_init(void);

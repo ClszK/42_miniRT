@@ -6,7 +6,7 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:54:01 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/23 04:21:49 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/26 09:02:22 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,29 @@
 
 t_minirt	mini_init(void)
 {
-	t_minirt	mini;
-	t_vars		vars;
-	t_data		image;
-	t_canvas	canvas;
-	t_camera	camera;
+	t_minirt	mi;
 
-	canvas = canvas_init(800, 640, 1.0);
-	camera = camera_init(canvas, point3_init(0, 0, 0), 
+	mi.canvas = canvas_init(860, 740, 70);
+	mi.camera = camera_init(mi.canvas, point3_init(0, 0, 10), 
 											vec3_init(0, 0, 1));
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, canvas.image_width, 
-								canvas.image_height, "miniRT");
-	image.img = mlx_new_image(vars.mlx, canvas.image_width, \
-								canvas.image_height); // 이미지 객체 생성
-	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel, \
-								&image.line_length, &image.endian); // 이미지 주소 할당
-	mini.rendering = FALSE;
-	mini.camera = camera;
-	mini.canvas = canvas;
-	mini.image = image;
-	mini.vars = vars;
-	return (mini);
+	mi.vars.mlx = mlx_init();
+	mi.vars.win = mlx_new_window(mi.vars.mlx, mi.canvas.image_width, 
+								mi.canvas.image_height, "miniRT");
+	mi.image.img = mlx_new_image(mi.vars.mlx, mi.canvas.image_width, \
+								mi.canvas.image_height); // 이미지 객체 생성
+	mi.image.addr = mlx_get_data_addr(mi.image.img, &mi.image.bits_per_pixel, \
+								&mi.image.line_length, &mi.image.endian); // 이미지 주소 할당
+	mi.rendering = FALSE;
+	mi.yaw = 0;
+	mi.pitch = 0;
+	mi.start_dir = mi.camera.cam_dir;
+	mi.start_center = mi.camera.center;
+	return (mi);
 }
 
 int	test(t_minirt *mini)
 {
 	if (mini->rendering == TRUE){
-		printf("%f %f %f\n", mini->canvas.viewport_u.x, mini->canvas.viewport_u.y, mini->canvas.viewport_u.z);
 		render(mini->canvas, mini->camera, &mini->image);
 		mlx_put_image_to_window(mini->vars.mlx, mini->vars.win, \
 														mini->image.img, 0, 0);
@@ -58,7 +53,6 @@ int main()
 	mini = mini_init();
 	render(mini.canvas, mini.camera, &mini.image);
 	mlx_put_image_to_window(mini.vars.mlx, mini.vars.win, mini.image.img, 0, 0);
-	// mlx_key_hook(vars.win, key_hook, &vars); // esc key press event
 	mlx_key_hook(mini.vars.win, key_hook, &mini); // esc key press event
 	mlx_loop_hook(mini.vars.mlx, test, &mini);
 	mlx_loop(mini.vars.mlx);

@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.h                                           :+:      :+:    :+:   */
+/*   plane.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 02:35:45 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/25 17:10:58 by jeholee          ###   ########.fr       */
+/*   Created: 2024/04/23 12:26:42 by jeholee           #+#    #+#             */
+/*   Updated: 2024/04/23 12:48:53 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPHERE_H
-# define SPHERE_H
+#ifndef PLANE_H
+# define PLANE_H
 
+# include "vec3.h"
 # include "object.h"
 
-typedef struct s_sphere t_sphere;
+typedef struct s_plane t_plane;
 
-struct s_sphere
+struct s_plane
 {
-	t_bool		(*hit)(const t_ray*, const t_sphere*, t_hit_record*);
+	t_bool		(*hit)(const t_ray*, const t_plane*, t_hit_record*);
 	t_point3	center;
-	double		radius;
+	t_vec3		plane_norm;
 	t_color		color;
-	t_color		albedo;	//반사율
+	t_color		albedo;
+	double		d;
+	/* data */
 };
 
-t_sphere	*sphere_gen(const t_point3 center, const t_color col, double r, \
-													const t_color albedo);
-t_bool		hit_sphere(const t_ray *r, const t_sphere *sphere, t_hit_record *rec);
+t_plane	*plane_gen(t_point3 center, t_color col, t_vec3 norm, t_color albedo);
+t_bool	hit_plane(const t_ray *r, const t_plane *plane, t_hit_record *rec);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 21:11:30 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/17 11:34:46 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/24 14:46:24 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_point3	at(double t, const t_ray *ray)
 {
 	t_vec3	tmp;
 
-	tmp	= vec3_mul_scal(&ray->dir, t);
-	return (vec3_add(&ray->orig, &tmp));
+	tmp.x = t * ray->dir.x + ray->orig.x;
+	tmp.y = t * ray->dir.y + ray->orig.y;
+	tmp.z = t * ray->dir.z + ray->orig.z;
+	return (tmp);
 }
