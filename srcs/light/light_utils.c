@@ -6,12 +6,11 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:30:46 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:54:37 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 21:26:52 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "light.h"
-#include "camera.h"
 
 t_light	*light_gen(t_point3 origin, t_color light_color, double bright_ratio)
 {
@@ -94,51 +93,4 @@ t_bool	in_shadow(t_object *objs, t_ray *light_ray, double light_len)
 	if (hit(objs, light_ray, &rec))
 		return (TRUE);
 	return (FALSE);
-}
-
-void	diffuse_cal(t_light_info *info, t_render *render, t_light *light)
-{
-	double	kd;	// diffuse의 강도 계수
-
-	kd = fmax(vec3_dot(&render->rec.norm, &info->light_dir), 0.0);
-	info->diffuse = vec3_mul_scal(&light->light_color, kd);
-}
-
-void	specular_cal(t_light_info *info, t_render *render, t_light *light)
-{
-	t_vec3		view_dir;
-	t_vec3		reflect_dir;
-	double		ksn;	// shininess value
-	double		ks;		// specular strength
-	double		spec;	// cos x ^ ksn
-
-	view_dir = vec3_unit(vec3_mul_scal(&render->ray.dir, -1));
-	reflect_dir = vec3_mul_scal(&info->light_dir, -1);
-	reflect(&reflect_dir, &render->rec.norm);
-	ksn = 64;
-	ks = 0.5;
-	spec = pow(fmax(vec3_dot(&view_dir, &reflect_dir), 0.0), ksn);
-	info->specular = vec3_init(ks * light->light_color.x * spec, \
-								ks * light->light_color.y * spec, \
-								ks * light->light_color.z * spec);
-}
-
-void	reflect(t_vec3 *v, const t_vec3 *n)
-{
-	double	dot_cal;
-
-	dot_cal = vec3_dot(v, n) * 2;
-	v->x = v->x - n->x * dot_cal;
-	v->y = v->y - n->y * dot_cal;
-	v->z = v->z - n->z * dot_cal;
-}
-
-void	color_surround(t_color *light_color)
-{	
-	if (light_color->x > 1)
-		light_color->x = 1;
-	if (light_color->y > 1)
-		light_color->y = 1;
-	if (light_color->z > 1)
-		light_color->z = 1;
 }

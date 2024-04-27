@@ -6,11 +6,11 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:23:53 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/20 11:04:11 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 21:15:27 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 t_vec3	vec3_init(double x, double y, double z)
 {
@@ -41,5 +41,5 @@ double	vec3_length(const t_vec3 *vec)
 
 t_vec3	vec3_unit(const t_vec3 v)
 {
-	return vec3_div_scal(&v, vec3_length(&v));
+	return (vec3_div_scal(&v, vec3_length(&v)));
 }

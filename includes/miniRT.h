@@ -6,7 +6,7 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 07:49:09 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:39:27 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 21:28:17 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "my_mlx.h"
 # include "mlx.h"
 # include "ray.h"
-# include "camera.h"
+# include "scene.h"
 
 # define UP 126
 # define DOWN 125
@@ -47,5 +47,6 @@ typedef struct s_minirt
 }	t_minirt;
 
 t_minirt	mini_init(void);
+int			re_render(t_minirt *mini);
 
 #endif

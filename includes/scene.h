@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera.h                                           :+:      :+:    :+:   */
+/*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 04:18:28 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:57:51 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 21:10:44 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAMERA_H
-# define CAMERA_H
+#ifndef SCENE_H
+# define SCENE_H
 
 # include "vec3.h"
 # include "object.h"
@@ -58,5 +58,6 @@ t_canvas	canvas_init(int width, int height, int fov);
 t_camera	camera_init(t_canvas cvs, t_point3 center, t_vec3 cam_dir);
 void		render(t_canvas cvs, t_camera cm, t_data *img);
 t_render	render_init(void);
+double		degrees_to_radians(double degrees);
 
 #endif

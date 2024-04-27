@@ -6,11 +6,11 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:47:18 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/24 13:30:14 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 20:52:56 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 t_vec3	vec3_mul_scal(const t_vec3 *vec, const double t)
 {

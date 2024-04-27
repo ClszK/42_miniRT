@@ -5,10 +5,10 @@ SRCS_DIR	=	srcs
 OBJS_DIR	=	obj
 INC_DIR		=	includes
 
-HEADER_H	=	camera.h\
+HEADER_H	=	scene.h\
 				double_lst.h\
 				light.h\
-				miniRT.h\
+				minirt.h\
 				my_mlx.h\
 				object.h\
 				ray.h\
@@ -19,19 +19,27 @@ MLX_DIR		=	$(LIB_DIR)/minilibx_opengl_20191021
 
 SRCS_MAIN	=	main.c\
 				utils.c
+
 SRCS_VEC	= 	vec3_operator.c\
 				vec3_operator2.c\
 				vec3_utils.c
+				
 SRCS_MLX	=	my_mlx_utils.c\
+				my_mlx_utils2.c\
 				camera_utils.c
+
 SRCS_RAY	=	ray_utils.c
+
 SRCS_OBJ	=	object_utils.c\
 				sphere.c\
 				plane.c\
 				cylinder.c
+
 SRCS_DLS	=	double_lst.c\
 				double_lst2.c
-SRCS_LIGHT	=	light_utils.c
+
+SRCS_LIGHT	=	light_utils.c\
+				light_utils2.c
 
 SRCS		=	$(SRCS_MAIN)\
 				$(addprefix vec3/, $(SRCS_VEC))\

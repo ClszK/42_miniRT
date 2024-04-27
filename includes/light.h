@@ -6,7 +6,7 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:25:45 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:56:54 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 21:26:50 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define LUMEN 3
 
 # include "vec3.h"
+# include "scene.h"
 # include <stdlib.h>
 # include <errno.h>
 
@@ -48,11 +49,11 @@ t_light	*light_gen(t_point3 origin, t_color light_color, double bright_radio);
 t_color	phong_lighting(t_render *render);
 t_color	point_light_get(t_render *render, t_light *light);
 t_bool	hard_shadow(t_light_info *info, t_render *render, t_light *light);
+t_bool	in_shadow(t_object *objs, t_ray *light_ray, double light_len);
 
 void	diffuse_cal(t_light_info *info, t_render *render, t_light *light);
 void	specular_cal(t_light_info *info, t_render *render, t_light *light);
 void	reflect(t_vec3 *v, const t_vec3 *n);
-t_bool	in_shadow(t_object *objs, t_ray *light_ray, double light_len);
 void	color_surround(t_color *light_color);
 
 #endif
