@@ -6,12 +6,11 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 05:44:41 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/26 09:58:20 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 18:39:13 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
-#include "sphere.h"
 #include "plane.h"
 
 double degrees_to_radians(double degrees) {
@@ -79,8 +78,8 @@ t_render	render_init(void)
 				color_init(1,1,1), 2, color_init(0, 0.5, 0)));
 	obj_add(&render.world, sphere_gen(point3_init(0, -1000, 1), \
 				color_init(0,1,1), 995, color_init(1, 1, 1)));
-	obj_add(&render.world, cylinder_gen(point3_init(0, 10, -20), \
-				vec3_init(0,-1,0), color_init(0.5, 0.5, 0.5), color_init(1, 1, 1), 3, 10));
+	obj_add(&render.world, cylinder_gen(point3_init(0, 2, -20), \
+				vec3_init(0,0,-1), color_init(0.5, 0.5, 0.5), color_init(1, 1, 1), 3, 10));
 	obj_add(&render.world, plane_gen(point3_init(5, 1, 20), \
 				color_init(1, 0.7, 0.8), vec3_init(-1, 0, 0), color_init(0, 0, 0.5)));
 	obj_init(&render.light);

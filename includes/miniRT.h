@@ -6,7 +6,7 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 07:49:09 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/23 11:53:53 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 18:39:27 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "my_mlx.h"
 # include "mlx.h"
 # include "ray.h"
-# include "sphere.h"
 # include "camera.h"
 
 # define UP 126

@@ -12,7 +12,6 @@ HEADER_H	=	camera.h\
 				my_mlx.h\
 				object.h\
 				ray.h\
-				sphere.h\
 				plane.h\
 				vec3.h
 
@@ -47,7 +46,7 @@ OBJS		=	$(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
 DEPS		=	$(addprefix $(INC_DIR)/, $(HEADER_H))
 
 CC			=	cc
-CFLAGS		=	-Werror -Wall -Wextra -g3 -fsanitize=address
+CFLAGS		=	-Werror -Wall -Wextra
 CPPFLAGS	=	-I$(LIBFT_DIR) -I$(MLX_DIR) -I$(INC_DIR)
 CLIB		=	-L$(MLX_DIR) -lmlx -framework OpenGL -framework Appkit
 

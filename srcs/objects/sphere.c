@@ -6,16 +6,16 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 03:01:10 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/24 14:48:50 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 18:38:30 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sphere.h"
+#include "object.h"
 
 t_sphere	*sphere_gen(const t_point3 center, const t_color col, double r, \
 														const t_color albedo)
 {
-	t_sphere *sph;
+	t_sphere	*sph;
 
 	sph = malloc(sizeof(t_sphere));
 	if (sph == NULL)
@@ -30,7 +30,7 @@ t_sphere	*sphere_gen(const t_point3 center, const t_color col, double r, \
 
 t_bool	hit_sphere(const t_ray *r, const t_sphere *sphere, t_hit_record *rec)
 {
-	t_oc_ahc	coef;
+	t_sph_info	coef;	
 
 	coef.oc = vec3_sub(&sphere->center, &r->orig);
 	coef.a = vec3_dot(&r->dir, &r->dir);

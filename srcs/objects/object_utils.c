@@ -6,12 +6,11 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 10:57:00 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/23 07:19:01 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 18:39:10 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "object.h"
-#include "sphere.h"
 #include "camera.h"
 
 void	set_face_norm(const t_ray *r, t_hit_record *rec, t_vec3 *out_norm)
