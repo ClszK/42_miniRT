@@ -6,12 +6,11 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 05:44:41 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:39:13 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 19:00:15 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camera.h"
-#include "plane.h"
 
 double degrees_to_radians(double degrees) {
     return degrees * M_PI / 180.0;
@@ -84,7 +83,7 @@ t_render	render_init(void)
 				color_init(1, 0.7, 0.8), vec3_init(-1, 0, 0), color_init(0, 0, 0.5)));
 	obj_init(&render.light);
 	obj_add(&render.light, light_gen(point3_init(0, 20, 0), \
-				color_init(1, 1, 1), 0.3, LIGHT_POINT));
+				color_init(1, 1, 1), 0.3));
 	ka = 0.1;
 	color = color_init(1,1,1);
 	render.ambient = vec3_mul_scal(&color, ka);

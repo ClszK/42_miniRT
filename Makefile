@@ -12,7 +12,6 @@ HEADER_H	=	camera.h\
 				my_mlx.h\
 				object.h\
 				ray.h\
-				plane.h\
 				vec3.h
 
 LIBFT_DIR	=	$(LIB_DIR)/libft

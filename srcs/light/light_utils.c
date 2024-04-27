@@ -6,25 +6,23 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:30:46 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:38:04 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 18:54:37 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "light.h"
 #include "camera.h"
 
-t_light	*light_gen(t_point3 origin, t_color light_color, double bright_radio, \
-					t_light_type type)
+t_light	*light_gen(t_point3 origin, t_color light_color, double bright_ratio)
 {
 	t_light	*light;
 
 	light = malloc(sizeof(t_light));
 	if (light == NULL)
 		exit(errno);
-	light->type = type;
 	light->origin = origin;
 	light->light_color = light_color;
-	light->bright_radio = bright_radio;
+	light->bright_ratio = bright_ratio;
 	return (light);
 }
 
@@ -40,11 +38,8 @@ t_color	phong_lighting(t_render *render)
 	while (node->next)
 	{
 		light = node->elem;
-		if (light->type == LIGHT_POINT)
-		{
-			light_color = point_light_get(render, light);
-			light_color_sum = vec3_add(&light_color_sum, &light_color);
-		}
+		light_color = point_light_get(render, light);
+		light_color_sum = vec3_add(&light_color_sum, &light_color);
 		node = node->next;
 	}
 	light_color = color_init(\
@@ -64,7 +59,7 @@ t_color	point_light_get(t_render *render, t_light *light)
 		return (color_init(0, 0, 0));
 	diffuse_cal(&info, render, light);
 	specular_cal(&info, render, light);
-	brightness = light->bright_radio * LUMEN;
+	brightness = light->bright_ratio * LUMEN;
 	return (color_init((info.diffuse.x + info.specular.x) * brightness, \
 						(info.diffuse.y + info.specular.y) * brightness, \
 						(info.diffuse.z + info.specular.z) * brightness));

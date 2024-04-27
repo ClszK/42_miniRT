@@ -6,14 +6,12 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:25:45 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/20 12:03:06 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 18:56:54 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIGHT_H
 # define LIGHT_H
-
-# define LIGHT_POINT 1
 
 # define LUMEN 3
 
@@ -21,19 +19,23 @@
 # include <stdlib.h>
 # include <errno.h>
 
-typedef t_vec3 t_color;
-typedef struct s_render t_render;
-typedef int t_light_type;
-typedef struct s_lst t_object;
-typedef struct s_ray t_ray;
+typedef t_vec3			t_color;
+typedef struct s_render	t_render;
+typedef struct s_lst	t_object;
+typedef struct s_ray	t_ray;
 
 typedef struct s_light
 {
-	t_light_type	type;
 	t_point3		origin;
 	t_color			light_color;
-	double			bright_radio;
+	double			bright_ratio;
 }	t_light;
+
+typedef struct s_ambient
+{
+	double	ambient_ratio;
+	t_color	color;
+}	t_ambient;
 
 typedef struct s_light_info
 {
@@ -42,8 +44,7 @@ typedef struct s_light_info
 	t_vec3		light_dir;
 }	t_light_info;
 
-t_light	*light_gen(t_point3 origin, t_color light_color, double bright_radio, \
-					t_light_type type);
+t_light	*light_gen(t_point3 origin, t_color light_color, double bright_radio);
 t_color	phong_lighting(t_render *render);
 t_color	point_light_get(t_render *render, t_light *light);
 t_bool	hard_shadow(t_light_info *info, t_render *render, t_light *light);

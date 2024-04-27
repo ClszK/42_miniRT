@@ -6,7 +6,7 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 20:54:15 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:38:06 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 18:59:47 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_plane		t_plane;
 typedef struct s_sphere		t_sphere;
 typedef int					t_type;
 typedef struct s_lst		t_object;
+typedef struct s_plane		t_plane;
 
 typedef struct s_hit_record
 {
@@ -83,6 +84,17 @@ struct s_sphere
 	t_color		albedo;	//반사율
 };
 
+struct s_plane
+{
+	t_bool		(*hit)(const t_ray*, const t_plane*, t_hit_record*);
+	t_point3	center;
+	t_vec3		plane_norm;
+	t_color		color;
+	t_color		albedo;
+	double		d;
+	/* data */
+};
+
 void		set_face_norm(const t_ray *r, t_hit_record *rec, t_vec3 *out_norm);
 t_color		ray_color(t_render *render);
 void		obj_init(t_object *obj);
@@ -102,5 +114,9 @@ t_bool		cy_determine(t_cy_info *inf, const t_cylinder *cy, \
 t_sphere	*sphere_gen(const t_point3 center, const t_color col, double r, \
 													const t_color albedo);
 t_bool		hit_sphere(const t_ray *r, const t_sphere *sphere, t_hit_record *rec);
+
+t_plane		*plane_gen(t_point3 center, t_color col, t_vec3 norm, t_color albedo);
+t_bool		hit_plane(const t_ray *r, const t_plane *plane, t_hit_record *rec);
+
 
 #endif

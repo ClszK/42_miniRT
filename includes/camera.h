@@ -6,7 +6,7 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 04:18:28 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:38:07 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 18:57:51 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_render
 	t_color			color;
 	t_object		world;
 	t_object		light;
+	t_ambient		ambient_after;
 	t_color			ambient;
 	t_hit_record	rec;
 	t_ray			ray;

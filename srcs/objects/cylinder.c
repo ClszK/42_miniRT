@@ -6,12 +6,11 @@
 /*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:32:47 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:38:17 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/27 19:00:31 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "object.h"
-#include "plane.h"
 
 t_cylinder	*cylinder_gen(t_point3 center, t_vec3 axis, t_color col, \
 							t_color albedo, double r, double h)
