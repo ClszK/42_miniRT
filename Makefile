@@ -17,8 +17,7 @@ HEADER_H	=	scene.h\
 LIBFT_DIR	=	$(LIB_DIR)/libft
 MLX_DIR		=	$(LIB_DIR)/minilibx_opengl_20191021
 
-SRCS_MAIN	=	main.c\
-				utils.c
+SRCS_MAIN	=	main.c
 
 SRCS_VEC	= 	vec3_operator.c\
 				vec3_operator2.c\

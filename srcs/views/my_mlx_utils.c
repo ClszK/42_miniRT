@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_mlx_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 20:08:48 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 21:06:25 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/28 19:41:09 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	key_hook(int keycode, t_minirt *mini)
 		camera_rotate(keycode, mini);
 	else if (keycode == KEY_A || keycode == KEY_D \
 			|| keycode == KEY_S || keycode == KEY_W)
-		camera_rotate(keycode, mini);
+		camera_move(keycode, mini);
 	return (0);
 }
 

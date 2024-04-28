@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   object_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 10:57:00 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 19:08:40 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/28 19:49:48 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	set_face_norm(const t_ray *r, t_hit_record *rec, t_vec3 *out_norm)
 		rec->norm = vec3_mul_scal(out_norm, -1.0);
 }
 
-t_color		ray_color(t_render *render)
+t_color	ray_color(t_render *render)
 {
 	double			t;
 	double			inverse_t;
@@ -41,7 +41,7 @@ t_color		ray_color(t_render *render)
 						1.0 * inverse_t + 1.0 * t));
 }
 
-void		obj_init(t_object *obj)
+void	obj_init(t_object *obj)
 {
 	dlst_init(obj);
 }
@@ -51,7 +51,7 @@ void	obj_add(t_object *obj, void *elem)
 	dlst_add_last(obj, elem);
 }
 
-t_bool		hit(t_object *world, const t_ray *r, t_hit_record *rec)
+t_bool	hit(t_object *world, const t_ray *r, t_hit_record *rec)
 {
 	t_hit_record	tmp_rec;
 	t_node			*node;
@@ -62,7 +62,7 @@ t_bool		hit(t_object *world, const t_ray *r, t_hit_record *rec)
 	node = world->head->next;
 	while (node->next)
 	{
-		if (((t_sphere*)(node->elem))->hit(r, node->elem, &tmp_rec))
+		if (((t_sphere *)(node->elem))->hit(r, node->elem, &tmp_rec))
 		{
 			hit_anything = TRUE;
 			tmp_rec.tmax = tmp_rec.t;

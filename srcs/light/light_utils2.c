@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:25:19 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 21:27:07 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/28 19:47:16 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	reflect(t_vec3 *v, const t_vec3 *n)
 }
 
 void	color_surround(t_color *light_color)
-{	
+{
 	if (light_color->x > 1)
 		light_color->x = 1;
 	if (light_color->y > 1)

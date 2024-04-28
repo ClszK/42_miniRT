@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:25:45 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 21:26:50 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/28 19:50:16 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_ambient
 
 typedef struct s_light_info
 {
-	t_color		diffuse;	// diffuse의 강도와 빛의 양을 곱함
+	t_color		diffuse;
 	t_color		specular;
 	t_vec3		light_dir;
 }	t_light_info;

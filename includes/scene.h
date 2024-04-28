@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 04:18:28 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 21:10:44 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/28 19:50:37 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ typedef struct s_render
 	t_color			color;
 	t_object		world;
 	t_object		light;
-	t_ambient		ambient_after;
+	// t_ambient		ambient_after;
 	t_color			ambient;
 	t_hit_record	rec;
 	t_ray			ray;
 }	t_render;
 
-t_canvas	canvas_init(int width, int height, int fov); 
+t_canvas	canvas_init(int width, int height, int fov);
 t_camera	camera_init(t_canvas cvs, t_point3 center, t_vec3 cam_dir);
 void		render(t_canvas cvs, t_camera cm, t_data *img);
 t_render	render_init(void);

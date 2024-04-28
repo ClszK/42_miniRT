@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_mlx.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:48:43 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 21:04:29 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/04/28 19:56:00 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 typedef struct s_minirt	t_minirt;
 typedef t_vec3			t_color;
 
-typedef struct	s_vars {
+typedef struct s_vars {
 	void		*mlx;
 	void		*win;
 }				t_vars;
 //	이미지의 정보를 나타내는 변수를 저장한 구조체
 typedef struct s_data
 {
-	void 	*img;
+	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
