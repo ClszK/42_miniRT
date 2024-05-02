@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 10:57:00 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/28 19:49:48 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/02 22:09:00 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	set_face_norm(const t_ray *r, t_hit_record *rec, t_vec3 *out_norm)
 {
-	rec->front_face = vec3_dot(&r->dir, out_norm) < 0;
+	rec->front_face = vec3_dot(&r->dir, out_norm) <= 0;
 	rec->norm = *out_norm;
 	if (!rec->front_face)
 		rec->norm = vec3_mul_scal(out_norm, -1.0);

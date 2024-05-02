@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_mlx_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:03:16 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 21:10:08 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/05/02 20:22:30 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	camera_rotate(int keycode, t_minirt *mini)
 		mini->pitch -= 10.0;
 	rotate_vec = rotate_x(mini->start_dir, &mini->pitch);
 	rotate_vec = rotate_y(rotate_vec, &mini->yaw);
-	mini->camera = camera_init(mini->canvas, mini->camera.center, rotate_vec);
+	mini->camera->cam_dir = rotate_vec;
+	camera_init(mini->canvas, mini->camera);
 	mini->rendering = TRUE;
 }
 
@@ -62,17 +63,17 @@ void	camera_move(int keycode, t_minirt *mini)
 {
 	if (keycode == KEY_W)
 		mini->start_center = vec3_sub(&mini->start_center, \
-										&mini->camera.cam_dir);
+										&mini->camera->cam_dir);
 	else if (keycode == KEY_S)
 		mini->start_center = vec3_add(&mini->start_center, \
-										&mini->camera.cam_dir);
+										&mini->camera->cam_dir);
 	else if (keycode == KEY_A)
 		mini->start_center = vec3_sub(&mini->start_center, \
-										&mini->camera.right);
+										&mini->camera->right);
 	else if (keycode == KEY_D)
 		mini->start_center = vec3_add(&mini->start_center, \
-										&mini->camera.right);
-	mini->camera = camera_init(mini->canvas, mini->start_center, \
-								mini->camera.cam_dir);
+										&mini->camera->right);
+	mini->camera->center = mini->start_center;
+	camera_init(mini->canvas, mini->camera);
 	mini->rendering = TRUE;
 }

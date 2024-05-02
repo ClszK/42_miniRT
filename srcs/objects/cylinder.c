@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:32:47 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 19:00:31 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/05/02 21:46:09 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "object.h"
 
-t_cylinder	*cylinder_gen(t_point3 center, t_vec3 axis, t_color col, \
-							t_color albedo, double r, double h)
+t_cylinder	*cylinder_gen(t_point3 center, t_vec3 axis, t_color albedo, \
+													double r, double h)
 {
 	t_cylinder	*cylinder;
 
@@ -23,7 +23,6 @@ t_cylinder	*cylinder_gen(t_point3 center, t_vec3 axis, t_color col, \
 	cylinder->hit = &hit_cylinder;
 	cylinder->center = center;
 	cylinder->axis = axis;
-	cylinder->color = col;
 	cylinder->albedo = albedo;
 	cylinder->radius = r;
 	cylinder->height = h;
@@ -38,7 +37,6 @@ t_bool	hit_cylinder(const t_ray *r, const t_cylinder *cy, \
 
 	result = FALSE;
 	pl.albedo = cy->albedo;
-	pl.color = cy->color;
 	pl.plane_norm = cy->axis;
 	pl.center = vec3_init(cy->center.x + cy->axis.x * cy->height / 2, \
 							cy->center.y + cy->axis.y * cy->height / 2, \

@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 04:18:28 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/28 19:50:37 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/02 19:45:45 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef struct s_camera
 	t_vec3		delta_u;
 	t_vec3		delta_v;
 	t_vec3		cam_dir;
-	t_color		ambient;
 	t_vec3		viewport_u;
 	t_vec3		viewport_v;
 	t_vec3		right;
+	int			fov;
 }	t_camera;
 
 typedef struct s_canvas
@@ -46,17 +46,17 @@ typedef struct s_render
 {
 	t_vec3			pixel_center;
 	t_color			color;
-	t_object		world;
-	t_object		light;
-	// t_ambient		ambient_after;
-	t_color			ambient;
 	t_hit_record	rec;
 	t_ray			ray;
+	t_object		world;
+	t_object		light;
+	t_color			ambient;
+	t_bool			has_amb;
 }	t_render;
 
-t_canvas	canvas_init(int width, int height, int fov);
-t_camera	camera_init(t_canvas cvs, t_point3 center, t_vec3 cam_dir);
-void		render(t_canvas cvs, t_camera cm, t_data *img);
+t_canvas	canvas_init(int width, int height);
+void		camera_init(t_canvas cvs, t_camera *cam);
+void		render(t_render *inf, t_canvas *cvs, t_camera *cam, t_data *img);
 t_render	render_init(void);
 double		degrees_to_radians(double degrees);
 

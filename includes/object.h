@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 20:54:15 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/28 19:55:17 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/02 21:46:28 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ struct s_cylinder
 	t_bool		(*hit)(const t_ray *, const t_cylinder *, t_hit_record *);
 	t_point3	center;
 	t_vec3		axis;
-	t_color		color;
 	t_color		albedo;
 	double		radius;
 	double		height;
@@ -80,7 +79,6 @@ struct s_sphere
 	t_bool		(*hit)(const t_ray *, const t_sphere *, t_hit_record *);
 	t_point3	center;
 	double		radius;
-	t_color		color;
 	t_color		albedo;
 };
 
@@ -89,7 +87,6 @@ struct s_plane
 	t_bool		(*hit)(const t_ray *, const t_plane *, t_hit_record *);
 	t_point3	center;
 	t_vec3		plane_norm;
-	t_color		color;
 	t_color		albedo;
 	double		d;
 };
@@ -100,8 +97,8 @@ void		obj_init(t_object *obj);
 void		obj_add(t_object *obj, void *elem);
 t_bool		hit(t_object *world, const t_ray *r, t_hit_record *rec);
 
-t_cylinder	*cylinder_gen(t_point3 center, t_vec3 axis, t_color col, \
-								t_color albedo, double r, double h);
+t_cylinder	*cylinder_gen(t_point3 center, t_vec3 axis, t_color albedo, \
+													double r, double h);
 t_bool		hit_cylinder(const t_ray *r, const t_cylinder *cy, \
 												t_hit_record *rec);
 t_bool		hit_cylinder_side(const t_ray *r, const t_cylinder *cy, \
@@ -111,13 +108,11 @@ t_bool		hit_cylinder_caps(const t_ray *r, const t_cylinder *cy, \
 t_bool		cy_determine(t_cy_info *inf, const t_cylinder *cy, \
 								const t_ray *r, const t_hit_record *rec);
 
-t_sphere	*sphere_gen(const t_point3 center, const t_color col, double r, \
-												const t_color albedo);
+t_sphere	*sphere_gen(const t_point3 center, double r, const t_color albedo);
 t_bool		hit_sphere(const t_ray *r, const t_sphere *sphere, \
 												t_hit_record *rec);
 
-t_plane		*plane_gen(t_point3 center, t_color col, t_vec3 norm, \
-												t_color albedo);
+t_plane		*plane_gen(t_point3 center, t_vec3 norm, t_color albedo);
 t_bool		hit_plane(const t_ray *r, const t_plane *plane, t_hit_record *rec);
 
 #endif

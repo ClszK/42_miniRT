@@ -12,7 +12,8 @@ HEADER_H	=	scene.h\
 				my_mlx.h\
 				object.h\
 				ray.h\
-				vec3.h
+				vec3.h\
+				parse.h
 
 LIBFT_DIR	=	$(LIB_DIR)/libft
 MLX_DIR		=	$(LIB_DIR)/minilibx_opengl_20191021
@@ -40,13 +41,16 @@ SRCS_DLS	=	double_lst.c\
 SRCS_LIGHT	=	light_utils.c\
 				light_utils2.c
 
+SRCS_PARSE	=	parse.c
+
 SRCS		=	$(SRCS_MAIN)\
 				$(addprefix vec3/, $(SRCS_VEC))\
 				$(addprefix views/, $(SRCS_MLX))\
 				$(addprefix ray/, $(SRCS_RAY))\
 				$(addprefix objects/, $(SRCS_OBJ))\
 				$(addprefix double/, $(SRCS_DLS))\
-				$(addprefix light/, $(SRCS_LIGHT))
+				$(addprefix light/, $(SRCS_LIGHT))\
+				$(addprefix parse/, $(SRCS_PARSE))
 				
 OBJS		=	$(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
 DEPS		=	$(addprefix $(INC_DIR)/, $(HEADER_H))
@@ -71,6 +75,7 @@ $(OBJS_DIR) :
 	@mkdir -p $(OBJS_DIR)/objects
 	@mkdir -p $(OBJS_DIR)/double
 	@mkdir -p $(OBJS_DIR)/light
+	@mkdir -p $(OBJS_DIR)/parse
 
 $(OBJS_DIR)/%.o	:	$(SRCS_DIR)/%.c $(DEPS) | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@

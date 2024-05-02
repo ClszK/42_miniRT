@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   double_lst.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 23:59:03 by ljh               #+#    #+#             */
-/*   Updated: 2024/04/17 11:44:34 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/05/02 18:35:18 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ int		dlst_init(struct s_lst *lst);
 int		dlst_add_last(struct s_lst *lst, void *element);
 void	dlst_del_last(struct s_lst *lst, void (*del)(void*));
 void	dlst_del_all(struct s_lst *lst, void (*del)(void*));
+
 void	*dlst_last_elem(struct s_lst *lst);
 int		dlst_print(struct s_lst *lst, int (*print)(void*));
 void	dlst_rev_print(struct s_lst *lst, void (*print)(void*));
 int		dlst_delete(struct s_lst *lst, \
 					void (*del)(void*), int (*find)(void*, void*), void *cmp);
+int		dlst_count(struct s_lst *lst);
 
 #endif

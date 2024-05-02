@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   light_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:30:46 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 21:26:52 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/05/02 21:23:35 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "light.h"
+#include <stdio.h>
 
 t_light	*light_gen(t_point3 origin, t_color light_color, double bright_ratio)
 {

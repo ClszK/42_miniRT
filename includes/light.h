@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:25:45 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/28 19:50:16 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/02 14:43:03 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_light
 typedef struct s_ambient
 {
 	double	ambient_ratio;
-	t_color	color;
+	t_color	rgb;
 }	t_ambient;
 
 typedef struct s_light_info

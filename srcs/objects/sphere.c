@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 03:01:10 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 18:38:30 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/05/02 21:44:53 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "object.h"
 
-t_sphere	*sphere_gen(const t_point3 center, const t_color col, double r, \
-														const t_color albedo)
+t_sphere	*sphere_gen(const t_point3 center, double r, const t_color albedo)
 {
 	t_sphere	*sph;
 
@@ -23,7 +22,6 @@ t_sphere	*sphere_gen(const t_point3 center, const t_color col, double r, \
 	sph->hit = &hit_sphere;
 	sph->center = center;
 	sph->radius = r;
-	sph->color = col;
 	sph->albedo = albedo;
 	return (sph);
 }

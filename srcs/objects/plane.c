@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:35:01 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/27 19:01:38 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/05/02 22:10:24 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "object.h"
 
-t_plane	*plane_gen(t_point3 center, t_color col, t_vec3 norm, t_color albedo)
+t_plane	*plane_gen(t_point3 center, t_vec3 norm, t_color albedo)
 {
 	t_plane	*plane;
 
@@ -22,7 +22,6 @@ t_plane	*plane_gen(t_point3 center, t_color col, t_vec3 norm, t_color albedo)
 	plane->hit = &hit_plane;
 	plane->albedo = albedo;
 	plane->center = center;
-	plane->color = col;
 	plane->plane_norm = norm;
 	plane->d = vec3_dot(&norm, &center) * -1;
 	return (plane);

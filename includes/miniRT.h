@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 07:49:09 by jeholee           #+#    #+#             */
-/*   Updated: 2024/04/28 19:50:55 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/02 19:55:50 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 # define MINIRT_H
 
 # include <unistd.h>
+# include <stdio.h>
+# include <string.h>
+# include <fcntl.h>
 # include "vec3.h"
 # include "my_mlx.h"
 # include "mlx.h"
 # include "ray.h"
 # include "scene.h"
+# include "object.h"
+# include "light.h"
+# include "parse.h"
 
 # define UP 126
 # define DOWN 125
@@ -30,14 +36,13 @@
 # define KEY_S 1
 # define KEY_D 2
 
-typedef int	t_bool;
-
 typedef struct s_minirt
 {
+	t_camera	*camera;
+	t_canvas	canvas;
+	t_render	render;
 	t_vars		vars;
 	t_data		image;
-	t_canvas	canvas;
-	t_camera	camera;
 	t_bool		rendering;
 	double		yaw;
 	double		pitch;
@@ -45,7 +50,7 @@ typedef struct s_minirt
 	t_point3	start_center;
 }	t_minirt;
 
-t_minirt	mini_init(void);
+t_minirt	mini_init(char *argv[]);
 int			re_render(t_minirt *mini);
 
 #endif
