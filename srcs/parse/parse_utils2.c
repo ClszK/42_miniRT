@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:58:03 by ljh               #+#    #+#             */
-/*   Updated: 2024/05/07 03:52:51 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/10 00:10:31 by jeholee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,14 @@ t_vec3	atoxyz(char *str)
 	free_array(xyz_str);
 	return (coordinate);
 }
+#include <stdio.h>
 
 t_bool	is_normalized(t_vec3 coordinate)
 {
-	if (vec3_length(&coordinate) != 1.0)
-		return (TRUE);
-	return (FALSE);
+	int	length;
+
+	length = vec3_length(&coordinate) * 10000;
+	if (length >= 9999 && length <= 10000)
+		return (FALSE);
+	return (TRUE);
 }
