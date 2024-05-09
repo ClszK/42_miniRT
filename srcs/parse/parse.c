@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:33:31 by ljh               #+#    #+#             */
-/*   Updated: 2024/05/07 03:18:55 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/09 22:22:31 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,6 @@ void	parse_cylinder(char **id_line, t_minirt *mi)
 	if (is_valid_rgb(cy.albedo))
 		error_exit("Error\nInvalid cylinder rgb value.\n");
 	obj_add(&mi->render.world, cylinder_gen(cy));
-	printf("cy\t%.3f, %.3f, %.3f\t%.3f, %.3f, %.3f\t%.3f\t\
-						%.3f\t%.3f, %.3f, %.3f\n", cy.center.x, \
-																cy.center.y, \
-																cy.center.z, \
-																cy.axis.x, \
-																cy.axis.y, \
-																cy.axis.z, \
-																cy.radius * 2, \
-																cy.height, \
-																cy.albedo.x, \
-																cy.albedo.y, \
-																cy.albedo.z);
 }
 
 /* t_minirt *mini에서 모든 요소들이 초기화되어 있어야함. */
@@ -79,7 +67,9 @@ void	check_identifier(char *line, t_minirt *mini)
 	errno = 0;
 	id = ft_split(line, ' ');
 	if (errno)
-		error_exit("Error\nfail malloc.\n");
+		error_exit(NULL);
+	if (id[0] == NULL)	
+		error_exit("Error\n");
 	parse_elem(id, mini);
 	free_array(id);
 }

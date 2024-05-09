@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 07:49:09 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/09 19:44:03 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/09 21:12:49 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_minirt
 	t_point3	start_center;
 }	t_minirt;
 
-t_minirt	mini_init(char *argv[]);
+void		mini_init(t_minirt *mi, char *argv[]);
 int			re_render(t_minirt *mini);
 
 #endif

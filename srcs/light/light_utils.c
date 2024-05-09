@@ -6,12 +6,11 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:30:46 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/06 18:07:28 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/09 21:15:02 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "light.h"
-#include <stdio.h>
 
 t_light	*light_gen(t_point3 origin, t_color light_color, double bright_ratio)
 {

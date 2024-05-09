@@ -6,13 +6,13 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 02:04:25 by ljh               #+#    #+#             */
-/*   Updated: 2024/05/07 02:07:27 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/09 21:14:12 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int		elem_count(char *str, char c)
+int	elem_count(char *str, char c)
 {
 	int	i;
 	int	cnt;

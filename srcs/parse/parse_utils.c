@@ -101,33 +101,3 @@ double	atod(char *str, double result, double sign, double factor)
 	}
 	return (result * sign);
 }
-
-// double	atod(char *str, double result, double sign, double factor)
-// {
-// 	double	next_result;
-// 	double	add;
-
-// 	if (*(str) == '-' || *(str) == '+')
-// 		if (*(str++) == '-')
-// 			sign *= -1;
-// 	while (*(str) >= '0' && *(str) <= '9')
-// 	{
-// 		next_result = result * 10 + (*(str++) - '0');
-// 		printf("%f\n%f\n", next_result, next_result - result * 10);
-// 		if (next_result - result * 10 >= 10)
-// 			error_exit("Error\nPrecision lost during conversion\n");
-// 		result = next_result; 
-// 	}
-// 	if (*str++ != '.')
-// 		return (result * sign);
-// 	while (*(str) >= '0' && *(str) <= '9')
-// 	{
-// 		factor *= 0.1;
-// 		add = (*(str++) - '0') * factor;
-// 		next_result = result + add;
-// 		if (next_result - result < add && add != 0) 
-// 			error_exit("Error\nPrecision lost during conversion\n");
-// 		result = next_result;
-// 	}
-// 	return (result * sign);
-// }

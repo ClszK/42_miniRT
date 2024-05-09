@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:59:15 by ljh               #+#    #+#             */
-/*   Updated: 2024/05/07 04:03:51 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/09 21:13:39 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	parse_ambient(char **id_line, t_minirt *mi)
 	rgb = atorgb(id_line[2]);
 	if (is_valid_rgb(rgb))
 		error_exit("Error\ninvalid ambient rgb value.\n");
-	printf("A\t%.3f\t%.3f, %.3f, %.3f\n", ambient_ratio, rgb.x, rgb.y, rgb.z);
 	mi->render.ambient = vec3_mul_scal(&rgb, ambient_ratio);
 	mi->render.has_amb = TRUE;
 }
@@ -85,10 +84,6 @@ void	parse_light(char **id_line, t_minirt *mi)
 		light.light_color = color_init(1, 1, 1);
 	obj_add(&mi->render.light, light_gen(light.origin, light.light_color, \
 											light.bright_ratio));
-	printf("l\t%f, %f, %f\t%f\n", light.origin.x, \
-										light.origin.y, \
-										light.origin.z, \
-										light.bright_ratio);
 }
 
 void	parse_sphere(char **id_line, t_minirt *mi)
@@ -108,14 +103,6 @@ void	parse_sphere(char **id_line, t_minirt *mi)
 		error_exit("Error\nInvalid sphere rgb value.\n");
 	obj_add(&mi->render.world, sphere_gen(sph.center, sph.radius, \
 									sph.albedo));
-	printf("sp\t%.3f, %.3f, %.3f\t%.3f\t%.3f, %.3f, %.3f\n", \
-												sph.center.x, \
-												sph.center.y, \
-												sph.center.z, \
-												sph.radius * 2, \
-												sph.albedo.x, \
-												sph.albedo.y, \
-												sph.albedo.z);
 }
 
 void	parse_plane(char **id_line, t_minirt *mi)
@@ -133,14 +120,4 @@ void	parse_plane(char **id_line, t_minirt *mi)
 		error_exit("Error\ninvalid plane rgb value\n");
 	obj_add(&mi->render.world, plane_gen(pl.center, pl.plane_norm, \
 										pl.albedo));
-	printf("pl\t%.3f, %.3f, %.3f\t%.3f, %.3f, %.3f\t%.3f, %.3f, %.3f\n", \
-														pl.center.x, \
-														pl.center.y, \
-														pl.center.z, \
-														pl.plane_norm.x, \
-														pl.plane_norm.y, \
-														pl.plane_norm.z, \
-														pl.albedo.x, \
-														pl.albedo.y, \
-														pl.albedo.z);
 }
