@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeholee <jeholee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:05:30 by jeholee           #+#    #+#             */
-/*   Updated: 2024/01/19 09:15:16 by jeholee          ###   ########.fr       */
+/*   Updated: 2024/05/06 16:36:10 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		dst++;
 	}
 	while (*(src) && dstsize > dst_cat_len + 1)
-	{	
+	{
 		*(dst++) = *(src++);
 		dst_cat_len++;
 	}

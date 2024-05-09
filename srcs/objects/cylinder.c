@@ -6,26 +6,21 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:32:47 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/02 21:46:09 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/06 16:22:01 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "object.h"
 
-t_cylinder	*cylinder_gen(t_point3 center, t_vec3 axis, t_color albedo, \
-													double r, double h)
+t_cylinder	*cylinder_gen(t_cylinder cy)
 {
 	t_cylinder	*cylinder;
 
 	cylinder = malloc(sizeof(t_cylinder));
 	if (cylinder == NULL)
 		exit(errno);
+	*cylinder = cy;
 	cylinder->hit = &hit_cylinder;
-	cylinder->center = center;
-	cylinder->axis = axis;
-	cylinder->albedo = albedo;
-	cylinder->radius = r;
-	cylinder->height = h;
 	return (cylinder);
 }
 

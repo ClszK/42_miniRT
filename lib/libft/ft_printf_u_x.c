@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:45:56 by jeholee           #+#    #+#             */
-/*   Updated: 2023/09/15 07:53:37 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/06 16:35:31 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ char	*ft_itoa_u(unsigned int n)
 
 	top = -1;
 	sign = 1;
-	if (n < 0)
-	{
-		n *= -1;
-		sign = -1;
-	}
 	stack_fill_u(stack, &n, &top);
 	if (sign == -1)
 		stack[++top] = '-';

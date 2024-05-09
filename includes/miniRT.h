@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 07:49:09 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/02 19:55:50 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/06 15:55:28 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
+
+# define DB_MAX 1.7976931348623157e+308
+# define DB_MIN 2.2250738585072014e-308
 
 typedef struct s_minirt
 {

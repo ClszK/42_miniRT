@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:30:46 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/02 21:23:35 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/06 18:07:28 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_color	point_light_get(t_render *render, t_light *light)
 		return (color_init(0, 0, 0));
 	diffuse_cal(&info, render, light);
 	specular_cal(&info, render, light);
-	brightness = light->bright_ratio * LUMEN;
+	brightness = light->bright_ratio * 1;
 	return (color_init((info.diffuse.x + info.specular.x) * brightness, \
 						(info.diffuse.y + info.specular.y) * brightness, \
 						(info.diffuse.z + info.specular.z) * brightness));

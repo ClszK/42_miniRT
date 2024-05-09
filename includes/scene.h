@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 04:18:28 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/02 19:45:45 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/06 19:53:13 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ typedef struct s_render
 t_canvas	canvas_init(int width, int height);
 void		camera_init(t_canvas cvs, t_camera *cam);
 void		render(t_render *inf, t_canvas *cvs, t_camera *cam, t_data *img);
-t_render	render_init(void);
 double		degrees_to_radians(double degrees);
 
 #endif

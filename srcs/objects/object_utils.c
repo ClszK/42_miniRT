@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 10:57:00 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/02 22:09:00 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/06 14:34:17 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	set_face_norm(const t_ray *r, t_hit_record *rec, t_vec3 *out_norm)
 
 t_color	ray_color(t_render *render)
 {
-	double			t;
-	double			inverse_t;
 	t_hit_record	*rec;
 	t_ray			*r;
 
@@ -34,11 +32,7 @@ t_color	ray_color(t_render *render)
 	r = &render->ray;
 	if (hit(&render->world, r, rec))
 		return (phong_lighting(render));
-	t = 0.5 * (vec3_unit(r->dir).y + 1.0);
-	inverse_t = 1.0 - t;
-	return (color_init(1.0 * inverse_t + 0.5 * t, \
-						1.0 * inverse_t + 0.7 * t, \
-						1.0 * inverse_t + 1.0 * t));
+	return (color_init(0, 0, 0));
 }
 
 void	obj_init(t_object *obj)

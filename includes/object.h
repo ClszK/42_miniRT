@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 20:54:15 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/02 21:46:28 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/06 16:20:45 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ void		obj_init(t_object *obj);
 void		obj_add(t_object *obj, void *elem);
 t_bool		hit(t_object *world, const t_ray *r, t_hit_record *rec);
 
-t_cylinder	*cylinder_gen(t_point3 center, t_vec3 axis, t_color albedo, \
-													double r, double h);
+t_cylinder	*cylinder_gen(t_cylinder cy);
 t_bool		hit_cylinder(const t_ray *r, const t_cylinder *cy, \
 												t_hit_record *rec);
 t_bool		hit_cylinder_side(const t_ray *r, const t_cylinder *cy, \

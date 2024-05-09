@@ -41,7 +41,11 @@ SRCS_DLS	=	double_lst.c\
 SRCS_LIGHT	=	light_utils.c\
 				light_utils2.c
 
-SRCS_PARSE	=	parse.c
+SRCS_PARSE	=	parse.c\
+				parse_utils.c\
+				parse_utils2.c\
+				parse_utils3.c\
+				parse_utils4.c
 
 SRCS		=	$(SRCS_MAIN)\
 				$(addprefix vec3/, $(SRCS_VEC))\

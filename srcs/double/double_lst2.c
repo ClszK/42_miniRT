@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 21:28:15 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/02 18:18:33 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/06 16:18:49 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ int	dlst_delete(struct s_lst *lst, \
 	return (1);
 }
 
-int		dlst_count(struct s_lst *lst)
+int	dlst_count(struct s_lst *lst)
 {
-	int 	i;
+	int		i;
 	t_node	*tmp_node;
 
 	i = 0;
