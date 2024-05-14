@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:33:31 by ljh               #+#    #+#             */
-/*   Updated: 2024/05/09 22:22:31 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/10 03:10:11 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	check_identifier(char *line, t_minirt *mini)
 	id = ft_split(line, ' ');
 	if (errno)
 		error_exit(NULL);
-	if (id[0] == NULL)	
-		error_exit("Error\n");
+	if (id[0] == NULL)
+		error_exit("Error\nNot exist element in line.\n");
 	parse_elem(id, mini);
 	free_array(id);
 }

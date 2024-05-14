@@ -6,7 +6,7 @@
 /*   By: ljh <ljh@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:03:16 by jeholee           #+#    #+#             */
-/*   Updated: 2024/05/09 19:47:49 by ljh              ###   ########.fr       */
+/*   Updated: 2024/05/10 05:41:13 by ljh              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	camera_rotate(int keycode, t_minirt *mini)
 		mini->yaw -= 10.0;
 	else if (keycode == RIGHT)
 		mini->yaw += 10.0;
-	else if (keycode == UP && mini->pitch > -90)
+	else if (keycode == UP && mini->pitch > -80)
 		mini->pitch -= 10.0;
-	else if (keycode == DOWN && mini->pitch < 90)
+	else if (keycode == DOWN && mini->pitch < 80)
 		mini->pitch += 10.0;
 	rotate_vec = rotate_x(mini->start_dir, &mini->pitch);
 	rotate_vec = rotate_y(rotate_vec, &mini->yaw);
